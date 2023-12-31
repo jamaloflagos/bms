@@ -15,10 +15,8 @@ export const useFormSubmit = (url) => {
 
         console.log(formData);
         console.log(url);
+        console.log(user);
         
-        if(!user) {
-            return
-        }
 
         const res = await fetch(url, {
             method: 'POST',
