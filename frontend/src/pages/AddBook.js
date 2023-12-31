@@ -27,7 +27,7 @@ const AddBook = () => {
     
   return (
     <div>
-        <form onSubmit={() => handleSubmit(formData)}>
+        <form onSubmit={(e) => handleSubmit(e, formData)}>
 
             <fieldset>
                 <legend>Book Details</legend>

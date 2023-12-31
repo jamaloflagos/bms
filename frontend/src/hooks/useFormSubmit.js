@@ -13,6 +13,8 @@ export const useFormSubmit = (url) => {
         e.preventDefault();
         // setIsloading(true);
 
+        console.log(formData);
+        
         if(!user) {
             return
         }
