@@ -2,7 +2,7 @@ import { useForm } from "../hooks/useForm"
 import { useFormSubmit } from "../hooks/useFormSubmit";
 
 const AddBook = () => {
-    const url = 'http://localhost:4000/book/add'
+    const url = 'https://bms-server-ashy.vercel.app/book/add'
     const data = {
         book_name: "",
         nickname: "",

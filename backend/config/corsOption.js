@@ -1,4 +1,4 @@
-const whitelist = ['https://books-vfju.vercel.app', 'http://localhost:3000']
+const whitelist = ['https://bms-client.vercel.app', 'http://localhost:3000']
 const corsOptions = {
     origin: (origin, callback) => {
         if(whitelist.indexOf(origin) !== -1 || !origin) {

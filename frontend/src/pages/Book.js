@@ -22,7 +22,7 @@ const Book = () => {
 
             
             try {
-                const res = await fetch(`http://localhost:4000/book/${id}`, {
+                const res = await fetch(`https://bms-server-ashy.vercel.app/book/${id}`, {
                     headers: {
                         "Authorization": `Bearer ${user.accessToken}`
                     }
