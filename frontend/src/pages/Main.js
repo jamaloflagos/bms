@@ -102,8 +102,8 @@ const Main = () => {
             <Search onChange={onChange}/>
             <Link to="add-book">Add Book!</Link>    
         </div>
-        <Books books={currentBooks} />
-        {currentBooks.length === 0 && <h1>Book not found</h1>}
+        {currentBooks.length > 0 && <Books books={currentBooks} />}
+        {currentBooks.length === 0 && <h1>Add Boooks</h1>}
         {error && <h1>{error}</h1>}
         <Pagination totalBook={books} booksPerPage={booksPerPage} paginate={paginate} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
     </>
