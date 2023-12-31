@@ -62,36 +62,40 @@ const Book = () => {
         {filteredBook && filteredBook.map(book => (
             <div key={book._id}>
                 <div>
-                    <h1>{book.name}</h1>
-                    <h2>{book.nickname}</h2>
-                    <h2>{book.status}</h2>
+                    <h4>Book details</h4>
+                    <span>{book.name}</span>
+                    <span>{book.nickname}</span>
+                    <span>{book.status}</span>
                 </div>
 
                 <div>
-                    <h1>{book.category.name}</h1>
-                    <h1>{book.category.description}</h1>
+                    <h4>Book category details</h4>
+                    <span>{book.category.name}</span>
+                    <span>{book.category.description}</span>
                 </div>
 
                 <div>
-                    <h1>{book.author.name}</h1>
-                    <h1>{book.author.description}</h1>
-                    <h1>{book.author.gender}</h1>
-                    <h1>{book.author.dob}</h1>
-                    <h1>{book.author.yod}</h1>
-                    <h1>{book.author.position}</h1>
+                    <h4>Author details</h4>
+                    <span>{book.author.name}</span>
+                    <span>{book.author.description}</span>
+                    <span>{book.author.gender}</span>
+                    <span>{book.author.dob}</span>
+                    <span>{book.author.yod}</span>
+                    <span>{book.author.position}</span>
                 </div>
                 
                 <div>
-                    <h1>{book.publisher.name}</h1>
-                    <h1>{book.publisher.address}</h1>
-                    <h1>{book.publisher.country}</h1>
-                    <h1>{book.publisher.email}</h1>
-                    <h1>{book.publisher.phone}</h1>
+                    <h4>Publisher details</h4>
+                    <span>{book.publisher.name}</span>
+                    <span>{book.publisher.address}</span>
+                    <span>{book.publisher.country}</span>
+                    <span>{book.publisher.email}</span>
+                    <span>{book.publisher.phone}</span>
                 </div>
             </div>
         ))}
 
-    {error && <h1>{error}</h1>}
+    {error && <span>{error}</span>}
     </div>
   )
 }
