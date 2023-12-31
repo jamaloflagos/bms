@@ -14,7 +14,7 @@ const Search = ({onChange}) => {
             <i className="fa-solid fa-magnifying-glass"></i>
             <input 
                 type="text" 
-                placeholder="Search by Book Name"
+                placeholder="Search by Book Name/Author/Publisher?category"
                 onChange={onChange}
             />
             <i className="fa-thin fa-xmark"></i>

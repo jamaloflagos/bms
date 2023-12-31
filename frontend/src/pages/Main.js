@@ -99,9 +99,9 @@ const Main = () => {
     <>
         <div className="nav">
             <h1>Books</h1>
-            <Search onChange={onChange}/>
             <Link to="add-book">Add Book!</Link>    
         </div>
+        <Search onChange={onChange}/>
         {currentBooks.length > 0 && <Books books={currentBooks} />}
         {currentBooks.length === 0 && <h1>No Books Found</h1>}
         {error && <h1>{error}</h1>}
