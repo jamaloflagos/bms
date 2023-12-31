@@ -36,6 +36,7 @@ export const useFormSubmit = (url) => {
         if(res.ok) {
             const data = await res.json();
             // setIsloading(false);
+            console.log(data)
             dispatch({type: "ADD_BOOK", payload: data});
             navigate("/");
         } 
