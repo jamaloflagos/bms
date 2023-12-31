@@ -1,0 +1,16 @@
+20231223	15:31:29	cd5a5134-7ef8-42d7-ab90-a5c86b229cf1	ReferenceError: path is not defined	GET	/	undefined
+20231223	15:31:29	18ba3cd5-98bd-4b3a-9e99-6f0b1b6facd9	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	15:31:45	6a985244-552a-441f-98b8-a446a5ab5a15	ReferenceError: path is not defined	GET	/	undefined
+20231223	15:31:45	d3d1937e-2d65-49bb-a157-d698281724a9	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	15:31:50	4ca0368d-d60d-4f89-b429-dace9fb177b3	ReferenceError: path is not defined	GET	/index	undefined
+20231223	15:31:50	a2f7cee9-90a7-43d2-9f81-a8747d074241	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	16:44:38	ad7634f2-5f24-4608-afda-fea9035c7cd7	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	16:44:45	c062ed00-1882-481b-81f7-eca4ec65f4c4	TypeError: The "path" argument must be of type string. Received function dirname	GET	/index.json	undefined
+20231223	16:44:45	1ea02536-9981-4f19-afa6-2d5472533df3	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	16:44:54	56431ef2-ecf6-4272-a88b-c4c4a45c5107	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	16:45:02	919b06fe-0a0f-4956-9321-1dd8009813a9	TypeError: The "path" argument must be of type string. Received function dirname	GET	/hel	undefined
+20231223	16:45:02	ec840bc5-ace8-4441-83e1-2169f932624f	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	16:46:00	36b6532c-5533-48bc-b07d-b8884134b4ec	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	16:46:07	83f941dc-d8ef-4eb5-8d98-0adaa96bb17a	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20231223	16:46:12	741ec152-16ce-43bf-9d9a-6025d08c273c	TypeError: The "path" argument must be of type string. Received function dirname	GET	/index.htm	undefined
+20231223	16:46:12	d66cbab0-1945-4009-afd2-06ba1a7b2896	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined

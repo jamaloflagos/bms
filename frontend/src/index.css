@@ -1,0 +1,73 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+/* Apply styles to the entire table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+/* Style for table headers */
+th {
+  background-color: #f2f2f2; /* Light grey background for headers */
+  padding: none;
+}
+
+/* Style for alternating rows */
+tr:nth-child(2n+1) {
+  background-color: #fff; /* Grey background for odd rows */
+}
+
+tr:nth-child(2n) {
+  background-color: #ddd; /* White background for even rows */
+}
+
+/* Style for table cells */
+td {
+  border: 1px solid #ddd; /* Border for cells */
+  padding: 8px; /* Adjust padding as needed */
+}
+
+/* Style for links within cells */
+td a {
+  color: #333; /* Link color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Add bold font style */
+}
+
+/* Hover effect for links */
+td a:hover {
+  color: #555; /* Hover color */
+}
+
+/* nav {
+  display: flex;
+} */
+
+nav ul {
+  display: flex;
+  gap: 10px;
+  width: 50%;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
