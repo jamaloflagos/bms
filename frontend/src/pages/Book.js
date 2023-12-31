@@ -63,32 +63,31 @@ const Book = () => {
             <div key={book._id}>
                 <div>
                     <h4>Book details</h4>
-                    <hr />
                     <span>{book.name}</span>
                     <span>{book.nickname}</span>
                     <span>{book.status}</span>
+                    <hr />
                 </div>
 
                 <div>
                     <h4>Book category details</h4>
-                    <hr />
                     <span>{book.category.name}</span>
                     <span>{book.category.description}</span>
+                    <hr />
                 </div>
 
                 <div>
                     <h4>Author details</h4>
-                    <hr />
                     <span>{book.author.name}</span>
                     <span>{book.author.description}</span>
                     <span>{book.author.gender}</span>
                     <span>{book.author.dob}</span>
                     <span>{book.author.yod}</span>
                     <span>{book.author.position}</span>
+                    <hr />
                 </div>
                 
                 <div>
-                    <hr />
                     <h4>Publisher details</h4>
                     <span>{book.publisher.name}</span>
                     <span>{book.publisher.address}</span>
