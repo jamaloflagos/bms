@@ -103,7 +103,7 @@ const Main = () => {
             <Link to="add-book">Add Book!</Link>    
         </div>
         {currentBooks.length > 0 && <Books books={currentBooks} />}
-        {currentBooks.length === 0 && <h1>Add Boooks</h1>}
+        {currentBooks.length === 0 && <h1>No Books Found</h1>}
         {error && <h1>{error}</h1>}
         {currentBooks.length > 0 && <Pagination totalBook={books} booksPerPage={booksPerPage} paginate={paginate} setCurrentPage={setCurrentPage} currentPage={currentPage}/>}
     </>
