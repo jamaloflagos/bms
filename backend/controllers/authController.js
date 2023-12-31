@@ -3,7 +3,7 @@ const {User} = require("../models/userModel")
 const jwt = require("jsonwebtoken")
 
 const generateAccessToken = (_id) => {
-    return jwt.sign({_id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "1d"})
+    return jwt.sign({_id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "60m"})
 }
 const generateRefreshToken = (_id) => {
     return jwt.sign({_id}, process.env.REFRESH_TOKEN_SECRET, {expiresIn: "1d"})
