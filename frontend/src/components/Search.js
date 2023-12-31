@@ -16,6 +16,7 @@ const Search = ({onChange}) => {
                 type="text" 
                 placeholder="Search by Book Name/Author/Publisher?category"
                 onChange={onChange}
+                className="searc"
             />
             <i className="fa-thin fa-xmark"></i>
         </div>

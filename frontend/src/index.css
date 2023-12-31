@@ -75,3 +75,7 @@ nav ul li {
 span {
   display: block;
 }
+
+.search {
+  width: 100%;
+}
