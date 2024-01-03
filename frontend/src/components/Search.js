@@ -1,27 +1,19 @@
-import { useState } from "react"
-
-
-
-const Search = ({onChange}) => {
-  const [error, setError] = useState("");
+const Search = ({onChange, resetSearch}) => {
   
-
-  
-
   return (
     <div>
-        <div> 
-            <i className="fa-solid fa-magnifying-glass"></i>
+        <div className="search"> 
+            <div style={{display: "inline"}} onClick={resetSearch}>
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </div>
             <input 
                 type="text" 
                 placeholder="Search by Book Name/Author/Publisher?category"
                 onChange={onChange}
-                className="search"
             />
-            <i className="fa-thin fa-xmark"></i>
+            <i className="fa-solid fa-xmark"></i>
         </div>
 
-        {error && <h1>{error}</h1>}
     </div>
   )
 }

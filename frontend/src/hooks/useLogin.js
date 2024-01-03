@@ -11,7 +11,7 @@ export const useLogin =  () => {
     setError(null)
     setIsLoading(true)
 
-    const res = await fetch("https://bms-server-ashy.vercel.app/user/login", {
+    const res = await fetch("http://localhost:4000/user/login", {
         method: "POST", 
         headers: {
             "Content-Type": "application/json"

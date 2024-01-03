@@ -8,45 +8,48 @@ export const useFormSubmit = (url) => {
     const { user } = useUser();
     const { dispatch } = useBook();
     const [error, setError] = useState("");
+    const [isLoading, setLoading] = useState(false);
 
-    const handleSubmit = async(e, formData) => {
-        e.preventDefault();
-        // setIsloading(true);
+    const handleSubmit = async(e, formData, to, dispatchType) => {
+        setLoading(true);
+        e.preventDefault();        
 
-        console.log(formData);
-        console.log(url);
-        console.log(user);
-        
+        try {
+            const res = await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    "Authorization": `Bearer ${user.accessToken}`,
+                    "Content-Type": "application/json"
+                }
+            })
+    
+            if(res.status === 400) {
+                const {message} = await res.json();
+                setError(message);
 
-        const res = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {
-                "Authorization": `Bearer ${user.accessToken}`,
-                "Content-Type": "application/json"
+                setLoading(false)
             }
+    
+            if(res.ok) {
+                const data = await res.json();
+                dispatch({type: dispatchType, payload: data});
 
-        })
-
-        console.log(res);
-
-        if(!res.ok) {
-            const error = await res.json()
-            setError(error.message)
+                setLoading(false);
+                navigate(to);
+            } 
+            
+        } catch (err) {
+            const error = `${err.name}: ${err.message}`
+            setError(error);  
+            console.log(error);
+            setLoading(false);
         }
-
-        if(res.ok) {
-            const data = await res.json();
-            // setIsloading(false);
-            console.log(data)
-            dispatch({type: "ADD_BOOK", payload: data});
-            navigate("/");
-        } 
 
         if(!user) {
             setError("User not authenticated")
         }
     }
 
-  return [error, handleSubmit]
+  return [error, handleSubmit, isLoading]
 }

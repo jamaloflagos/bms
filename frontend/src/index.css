@@ -56,6 +56,11 @@ td a:hover {
   display: flex;
 } */
 
+.App {
+  width: 100vw;
+}
+
+
 nav ul {
   display: flex;
   gap: 10px;
@@ -77,5 +82,33 @@ span {
 }
 
 .search {
-  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 5px;
+  width: 90%;
+  height: 30px;
+  padding: 0 5px 0 5px;
+}
+
+.search input {
+  width: 90%;
+  border: none;
+  outline: none;
+  
+}
+
+.add {
+  background: #000;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 20px;
+  bottom: 70px;
 }

@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken")
 const { User } = require("../models/userModel")
 const verifyJWT = (req, res, next) => {
     const { authorization } = req.headers
-    console.log("authorization",authorization);
     
     if(!authorization) {
         return res.sendStatus(401);

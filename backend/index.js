@@ -20,7 +20,9 @@ app.use(express.json());
 
 app.use("/", require("./routes/root"));
 app.use("/user", require("./routes/authRoutes"));
-app.use("/book", require("./routes/bookRoutes"));
+app.use("/book", require("./routes/apis/bookRoutes"));
+app.use("/author", require("./routes/apis/authorRoutes"));
+app.use("/publisher", require("./routes/apis/publisherRoutes")); 
 
 app.all("*", (req, res) => {
     if (req.accepts("html")) {

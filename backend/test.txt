@@ -1,0 +1,4 @@
+author_id = 6592d0e70d2681b87f45d006
+publisher_id = 6592d0b00d2681b87f45d003
+
+6592a9ee6399feeab3be7d4f

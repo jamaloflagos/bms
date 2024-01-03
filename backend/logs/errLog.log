@@ -14,3 +14,11 @@
 20231223	16:46:07	83f941dc-d8ef-4eb5-8d98-0adaa96bb17a	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
 20231223	16:46:12	741ec152-16ce-43bf-9d9a-6025d08c273c	TypeError: The "path" argument must be of type string. Received function dirname	GET	/index.htm	undefined
 20231223	16:46:12	d66cbab0-1945-4009-afd2-06ba1a7b2896	TypeError: The "path" argument must be of type string. Received function dirname	GET	/favicon.ico	undefined
+20240101	12:28:12	85e4be12-9b67-4f69-8a74-bed37c7afb26	ReferenceError: RemotePlayback is not defined	DELETE	/publisher/6550f5a1efd06e0e05de86db	undefined
+20240101	12:49:43	df1771df-be8d-4528-84e7-6d6c4aaf2853	SyntaxError: Unexpected token } in JSON at position 147	POST	/publisher	undefined
+20240101	13:29:11	f195be7d-73c8-4925-9178-c1949323c7f3	ReferenceError: ObjectId is not defined	GET	/author/6592a67a4613463dd5331c1a	undefined
+20240101	15:35:44	e46a87e1-c5bf-4d1e-adfa-32fa0164f1bc	TypeError: Class constructor ObjectId cannot be invoked without 'new'	GET	/author/6592a67a4613463dd5331c1a	undefined
+20240101	15:39:23	20382e82-e55b-4b4b-aeb5-19c8e096b772	BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer	GET	/author/6592a67a4613463dd5331c1	undefined
+20240101	15:42:10	27e37f7d-1fc0-4fb4-879e-3d5896496319	ReferenceError: objectId is not defined	GET	/publisher/6592a6df4613463dd5331c1d	undefined
+20240101	15:50:53	fec53f53-71a4-4828-876b-c6b618e204a4	ValidationError: books validation failed: author: Cast to ObjectId failed for value "08135536774" (type string) at path "author" because of "BSONError", publisher: Cast to ObjectId failed for value "Nigeria" (type string) at path "publisher" because of "BSONError"	POST	/book/add	undefined
+20240103	13:53:40	ef1f453f-44df-4f57-88d7-ec5d00e797c3	Error: Cannot set headers after they are sent to the client	POST	/author	http://localhost:3000
