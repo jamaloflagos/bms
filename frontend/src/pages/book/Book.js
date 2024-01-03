@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useBook } from "../../hooks/useBook";
 import { useUser } from "../../hooks/useUser";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const Book = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const { user } = useUser();
     const {books, dispatch} = useBook(); 
@@ -57,7 +58,32 @@ const Book = () => {
         localStorage.setItem("singleBook", JSON.stringify(...filteredBook));
     }
 
-    const deleteBook = () => {}
+    const deleteBook = async () => {
+        try {
+            const res = await fetch(`http://localhost:4000/book/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Bearer ${user.accessToken}`
+                }
+            })
+
+            if (res.status === 400 || res.status === 500) {
+                const { message } = await res.json();
+                setError(message)
+            }
+
+            if (res.ok) {
+                const data = await res.json();
+                dispatch({type: "DELETE_BOOK", payload: data});
+
+                navigate("/");
+            }
+            
+        } catch (err) {
+            const error = `${err.name}: ${err.message}`
+            setError(error);
+        }
+    }
   return (
     <div>
         <div>
