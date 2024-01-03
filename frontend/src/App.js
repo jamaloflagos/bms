@@ -13,6 +13,8 @@ import Publisher from "./pages/publisher/Publisher";
 import AddPublisher from "./pages/publisher/AddPublisher";
 import AuthorsContainer from "./pages/author/AuthorsContainer";
 import PublishersContainer from "./pages/publisher/PublishersContainer";
+import EditPublisher from "./pages/publisher/EditPublisher";
+import EditAuthor from "./pages/author/EditAuthor";
 
 function App() {
   const { user, dispatch } = useUser();
@@ -90,10 +92,12 @@ function App() {
           <Route path="/add-book" element={<AddBook />} />
           <Route path="/edit-book/:id" element={<EditBook />} />
           <Route path="/authors" element={<AuthorsContainer />} />
-          <Route path="/:id" element={<Author />} />
+          <Route path="/author/:id" element={<Author />} />
+          <Route path="edit-author/:id" elemnt={<EditAuthor />} />
           <Route path="add-author" element={<AddAuthor />} />
           <Route path="publishers" element={<PublishersContainer />} />
           <Route path="/:id" element={<Publisher />} />
+          <Route path="edit-publisher/:id" element={<EditPublisher />} />
           <Route path="add-publisher" element={<AddPublisher />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

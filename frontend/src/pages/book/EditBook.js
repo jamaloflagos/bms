@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import { useBook } from "../../hooks/useBook";
-import { useUser } from "../../hooks/useUser";
+import { useFormSubmit } from "../../hooks/useFormSubmit";
 import { useParams, useNavigate } from "react-router-dom";
 
 const EditBook = () => {
@@ -8,18 +7,27 @@ const EditBook = () => {
     const authorsName = JSON.parse(localStorage.getItem("authorsName"));
     const publishersName = JSON.parse(localStorage.getItem("publishersName"));
 
-    const { dispatch } = useBook();
-    const { user } = useUser();
     const { id } = useParams();
-    const navigate = useNavigate();
-
-    const [isLoading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    const url = `http://localhost:4000/book/${id}`
+    const [ error, handleSubmit, isLoading ] = useFormSubmit(url);
+    
+    
     const [newName, setNewName] = useState("");
     const [newStatus, setNewStatus] = useState("");
     const [newNickname, setNewNickname] = useState("");
     const [newAuthor, setNewAuthor] = useState("");
     const [newPublisher, setNewPublisher] = useState("");
+    
+    const to = "/";
+    const dispatchType = "EDIT_BOOK"
+    const bookData = {
+        name: newName,
+        nickname: newNickname,
+        status: newStatus,
+        author: newAuthor,
+        publisher: newPublisher
+    }
+
 
     useEffect(() => {
         setNewName(name);
@@ -29,50 +37,10 @@ const EditBook = () => {
         setNewPublisher(publisher._id);
     }, [])
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        const bookData = {
-            name: newName,
-            nickname: newNickname,
-            status: newStatus,
-            author: newAuthor,
-            publisher: newPublisher
-        }
-
-        try {
-            const res = await fetch(`http://localhost:4000/book/${id}`, {
-                method: "PATCH",
-                headers: {
-                    "Authorization": `Bearer ${user.accessToken}`,
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify(bookData)
-            })
-            
-            if (res.status === 400 || res.status === 500) {
-                const { message } = await res.json();
-                setError(message);
-                setLoading(false);
-            }
-
-            if (res.ok) {
-                const data = await res.json();
-                dispatch({type: "EDIT_BOOK", payload: data});
-
-                setLoading(false);
-                navigate("/")
-            }
-        } catch (err) {
-            const error = `${err.name}: ${err.message}`
-            setError(error);
-
-            setLoading(false)
-        }
-    }
+   
   return (
     <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e, bookData, to, dispatchType)}>
             <label htmlFor="name">Name</label>
             <input 
                 type="text"

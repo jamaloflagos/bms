@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
 import { usePublisher } from "../../hooks/usePublisher";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import { useUser } from "../../hooks/useUser";
 
 const Publisher = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const { user } = useUser()
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
     const [isLoading, setLoading] = useState(true);
     const [filteredPublisher, setFilteredPublisher] = useState(null);
-    const [publishers] = usePublisher();
-
+    const { publishers, deletePublisher} = usePublisher();
+    console.log(id);
     const fetchPublisher = async () => {
         try {
             const res = await fetch(`http://localhost:4000/publisher/${id}`);
@@ -36,6 +39,37 @@ const Publisher = () => {
         fetchPublisher()
     }, [])
 
+    const handlePublisherEdit = () => {
+        localStorage.setItem("singlePublisher", JSON.stringify(...filteredPublisher));
+    }
+
+    const handleDeletePublisher = async () => {
+        try {
+            const res = await fetch(`http://localhost:4000/book/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Beare ${user.accesToken}`
+                }
+            });
+
+            if (res.status === 400 || res.status === 500) {
+                const { message } = await res.json();
+                setMessage(message);
+            }
+
+            if (res.ok) {
+                const data = await res.json();
+                deletePublisher(data);
+
+                navigate("/publishers");
+            }
+            
+        } catch (err) {
+            const error = `${err.name}: ${err.message}`
+            setError(error);
+        }
+    }
+
   return (
     <div>
         {error && <h1>{error}</h1>}
@@ -43,6 +77,14 @@ const Publisher = () => {
 
         <div>
             {isLoading ? <h1>Loading...</h1> : <div>{filteredPublisher && <h1>{filteredPublisher[0].name}</h1>}</div>}
+            <div>
+                    <Link to={`/edit-publisher/${id}`} onClick={handlePublisherEdit}>
+                        <i className="fa-regular fa-pen-to-square"></i>
+                    </Link>
+                    <button onClick={handleDeletePublisher}>
+                        <i className="fa-solid fa-trash"></i>
+                    </button>
+            </div>
         </div>
 
         {filteredPublisher && filteredPublisher.map(publisher => (

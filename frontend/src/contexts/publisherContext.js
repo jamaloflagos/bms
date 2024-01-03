@@ -50,7 +50,7 @@ export const PublisherContextProvider = ({children}) => {
         dispatch({type: "EDIT_PUBLISHER", payload:data})
     }
 
-    const deletPublisher = (data) => {
+    const deletePublisher = (data) => {
         dispatch({type: "DELETE_PUBLISHER", payload:data})
     }
 
@@ -60,7 +60,7 @@ export const PublisherContextProvider = ({children}) => {
         fetchPublishersName,
         addPublisher,
         editPublisher,
-        deletPublisher
+        deletePublisher
     }
 
     return (

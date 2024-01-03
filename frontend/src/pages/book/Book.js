@@ -14,7 +14,7 @@ const Book = () => {
     const [filteredBook, setFilteredBook] = useState(null);
     
     useEffect( () => {
-        const getSinglBook = async() => {
+        const getSingleBook = async() => {
             console.log("get singlenogte function called");
             
 
@@ -43,7 +43,7 @@ const Book = () => {
         }
         
         if(user) {
-            getSinglBook();
+            getSingleBook();
         }
         
         if(!user) {
@@ -98,7 +98,7 @@ const Book = () => {
                     <button onClick={deleteBook}>
                         <i className="fa-solid fa-trash"></i>
                     </button>
-                </div>
+            </div>
             </div>
         {filteredBook && filteredBook.map(book => (
             <div key={book._id}>
