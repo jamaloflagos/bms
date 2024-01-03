@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useBook } from "../../hooks/useBook";
 import { useUser } from "../../hooks/useUser";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const Book = () => {
     const { id } = useParams();
@@ -11,9 +11,6 @@ const Book = () => {
 
     const [error, setError] = useState("");
     const [filteredBook, setFilteredBook] = useState(null);
-    console.log("Single book component rendered");
-    
-    console.log("param", id);
     
     useEffect( () => {
         const getSinglBook = async() => {
@@ -54,11 +51,29 @@ const Book = () => {
             
         }
 
-    }, [user, dispatch, id, books])
-    console.log(filteredBook); 
+    }, [user, dispatch, id, books]);
 
+    const handleBookEdit = () => {
+        localStorage.setItem("singleBook", JSON.stringify(...filteredBook));
+    }
+
+    const deleteBook = () => {}
   return (
     <div>
+        <div>
+            <div>
+                {filteredBook && <h1>{filteredBook[0].name}</h1>}
+            </div>
+            
+            <div>
+                    <Link to={`/edit-book/${id}`} onClick={handleBookEdit}>
+                        <i className="fa-regular fa-pen-to-square"></i>
+                    </Link>
+                    <button onClick={deleteBook}>
+                        <i className="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
         {filteredBook && filteredBook.map(book => (
             <div key={book._id}>
                 <div>

@@ -12,6 +12,10 @@ const bookReducer = (state, action) => {
             return {
                 books: action.payload
             }
+        case "EDIT_BOOK": 
+            return {
+                authors: [action.payload, ...(state.books ?? [])]
+            }
         case "DELETE_BOOK":
             return {
                 books: state.books.filter(book => book._id !== action.payload._id)

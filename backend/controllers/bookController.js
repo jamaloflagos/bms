@@ -53,7 +53,8 @@ const getSingleBook = expressAsyncHandler(async(req, res) => {
 
 const updateBook = expressAsyncHandler(async(req, res) => {
     const { id } = req.params;
-
+    console.log("update received", id);
+    
     if(!id || !objectId.isValid(id)) return res.status(400).json({message: "invalid ID"});
         
     const book = await Book.findByIdAndUpdate(id, req.body, { new: true });

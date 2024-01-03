@@ -64,7 +64,6 @@ const AddBook = () => {
                 <select 
                      name="author"
                      id="author"
-                     value={formData.author}
                      onChange={onChange}
                 >
                     <option value="">Choose</option>
@@ -78,7 +77,6 @@ const AddBook = () => {
                 <select 
                     name="publisher"
                     id="publisher"
-                    value={formData.publisher}
                     onChange={onChange}
                 >
                     <option value="">Choose</option>

@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom"
 import { useUser } from "./hooks/useUser";
 import AddBook from './pages/book/AddBook';
+import EditBook from './pages/book/EditBook';
 import Book from './pages/book/Book';
 import Login from "./pages/Login";
 import BooksContainer from "./pages/book/BooksContainer";
@@ -87,6 +88,7 @@ function App() {
           <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
           <Route path="/:id" element={<Book />} />
           <Route path="/add-book" element={<AddBook />} />
+          <Route path="/edit-book/:id" element={<EditBook />} />
           <Route path="/authors" element={<AuthorsContainer />} />
           <Route path="/:id" element={<Author />} />
           <Route path="add-author" element={<AddAuthor />} />
