@@ -11,12 +11,17 @@ const Author = () => {
     const [error, setError] = useState("");
     const [isLoading, setLoading] = useState(true);
     const [filteredAuthor, setFilteredAuthor] = useState(null);
-    const [authors] = useAuthor();
+    const {authors} = useAuthor();
     const navigate = useNavigate();
-
+    console.log(id);
+    
     const fetchAuthor = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/author/${id}`);
+            const res = await fetch(`http://localhost:4000/author/${id}`, {
+                headers: {
+                    "Authorization": `Bearer ${user.accessToken}`
+                }
+            });
 
             if (res.status === 204 || res.status === 400) {
                 const { message } = await res.json();
@@ -27,7 +32,8 @@ const Author = () => {
 
             if (res.ok && res.status !== 204) {
                 const data = await res.json();
-
+                console.log(authors);
+                console.log(data);
                 setFilteredAuthor(authors && authors.filter(author => author._id === data._id));
                 setLoading(false);
             }
@@ -40,6 +46,10 @@ const Author = () => {
     useEffect(() => {
         fetchAuthor()
     }, [])
+
+    if (filteredAuthor) {
+        console.log(filteredAuthor)
+    }
 
     const handleAuthorEdit = () => {
         localStorage.setItem("singleAuthor", JSON.stringify(...filteredAuthor));

@@ -12,10 +12,13 @@ const Publisher = () => {
     const [isLoading, setLoading] = useState(true);
     const [filteredPublisher, setFilteredPublisher] = useState(null);
     const { publishers, deletePublisher} = usePublisher();
-    console.log(id);
     const fetchPublisher = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/publisher/${id}`);
+            const res = await fetch(`http://localhost:4000/publisher/${id}`, {
+                headers: {
+                    "Authorization": `Bearer ${user.accessToken}`
+                }
+            });
 
             if (res.status === 204 || res.status === 400) {
                 const { message } = await res.json();
@@ -25,7 +28,7 @@ const Publisher = () => {
 
             if (res.ok && res.status !== 204) {
                 const data = await res.json();
-
+                
                 setFilteredPublisher(publishers && publishers.filter(publisher => publisher._id === data._id));
                 setLoading(false);
             }
@@ -36,8 +39,10 @@ const Publisher = () => {
     }
 
     useEffect(() => {
-        fetchPublisher()
-    }, [])
+        if (user) {
+            fetchPublisher();
+        }
+    }, [user])
 
     const handlePublisherEdit = () => {
         localStorage.setItem("singlePublisher", JSON.stringify(...filteredPublisher));

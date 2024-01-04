@@ -96,7 +96,7 @@ function App() {
           <Route path="edit-author/:id" elemnt={<EditAuthor />} />
           <Route path="add-author" element={<AddAuthor />} />
           <Route path="publishers" element={<PublishersContainer />} />
-          <Route path="/:id" element={<Publisher />} />
+          <Route path="publisher/:id" element={<Publisher />} />
           <Route path="edit-publisher/:id" element={<EditPublisher />} />
           <Route path="add-publisher" element={<AddPublisher />} />
           <Route path="*" element={<Error404 />} />

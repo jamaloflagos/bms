@@ -83,7 +83,7 @@ const getSinglePublisher = expressAsyncHandler(async (req, res) => {
 
     if (!publisher) return res.status(204).json({message: "No such publisher"});
 
-    res.json(publisher);
+    res.json(...publisher);
 
 })
 

@@ -93,7 +93,7 @@ const getSingleAuthor = expressAsyncHandler(async (req, res) => {
 
     if (!author) return res.status(204).json({message: "Can't find such author"});
 
-    res.json(author)
+    res.json(...author)
 
 })
 

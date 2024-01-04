@@ -27,8 +27,12 @@ const Book = () => {
                 })
     
                 if(res.ok) {
-                    const data = await res.json();                
+                    const data = await res.json();  
+                    console.log(data);
+                                  
                     setFilteredBook(books && books.filter(book => book._id === data._id));    
+                    console.log(filteredBook);
+                    
                 }
                 
                 if(!res.ok) {

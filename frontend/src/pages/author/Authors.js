@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom"
+
 const Authors = ({name, description, gender, position, dob, yod, id}) => {
   return (
     <div>
-        <h1>{name}</h1>
+        <Link to={`/author/${id}`}>
+          <h1>{name}</h1>
+        </Link>
     </div>
   )
 }
