@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useFormSubmit } from "../../hooks/useFormSubmit";
-import { useEffect, usestate } from "react";
+import { useEffect, useState } from "react";
 
 const EditPublisher = () => {
     const {name, address, email, country, phone} = JSON.parse(localStorage.getItem("singlePublisher"))
@@ -8,11 +8,11 @@ const EditPublisher = () => {
     const url = `http:localhost:4000/author/${id}`
     const [ handleSubmit, error, isLoading ] = useFormSubmit(url);
 
-    const [newName, setNewName] = usestate("");
-    const [newAddress, setNewAddress] = usestate("");
-    const [newCountry, setNewCountry] = usestate("");
-    const [newEmail, setNewEmail] = usestate("");
-    const [newPhone, setNewPhone] = usestate("");
+    const [newName, setNewName] = useState("");
+    const [newAddress, setNewAddress] = useState("");
+    const [newCountry, setNewCountry] = useState("");
+    const [newEmail, setNewEmail] = useState("");
+    const [newPhone, setNewPhone] = useState("");
     
     const dispatchType = "EDIT_AUTHOR"
     const to = "/authors"
