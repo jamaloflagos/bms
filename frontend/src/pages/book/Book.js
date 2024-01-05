@@ -113,7 +113,7 @@ const Book = () => {
     <div>
         <div style={{display: "flex", justifyContent: "space-between"}}>
             <div>
-                {isLoading ? <h1>Loading...</h1> : {filteredBook && <h1>{filteredBook[0].name}</h1>}}
+                {isLoading ? <h1>Loading...</h1> : <div>{filteredBook && <h1>{filteredBook[0].name}</h1>}</div>}
             </div>
             
             <div>
