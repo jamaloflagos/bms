@@ -11,6 +11,7 @@ const Book = () => {
     const {books, dispatch} = useBook(); 
 
     const [error, setError] = useState("");
+    const [isLoading, setLoading] = useState("");
     const [filteredBook, setFilteredBook] = useState(null);
     
     useEffect( () => {
@@ -112,7 +113,7 @@ const Book = () => {
     <div>
         <div style={{display: "flex", justifyContent: "space-between"}}>
             <div>
-                {filteredBook && <h1>{filteredBook[0].name}</h1>}
+                {isLoading ? <h1>Loading...</h1> : {filteredBook && <h1>{filteredBook[0].name}</h1>}}
             </div>
             
             <div>
