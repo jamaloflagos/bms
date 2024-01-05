@@ -50,10 +50,10 @@ const BooksContainer = () => {
                    "Authorization": `Bearer ${user.accessToken}`
                 }
             })
-
+            
             if (res.status === 204) {
                 setLoading(false);
-                setMessage("No author found");
+                setMessage("No book found");
             }
             
             if (res.ok && res.status !== 204) {
@@ -62,6 +62,15 @@ const BooksContainer = () => {
 
                 setLoading(false);
                 setMessage("");
+            }
+
+            if (res.status === 401) {
+              setLoading(false);
+              throw new Error("Unauthorized, please login");;
+            }
+            if (res.status === 403) {
+              setLoading(false);
+              throw Error("Forbidden request, please login");
             }
     
         } catch (err) {
@@ -84,8 +93,16 @@ const BooksContainer = () => {
   
           if (res.ok && res.status !== 204) {
             const data = await res.json();
-            console.log(data);     
             fetchAuthorsName(data);
+
+            if (res.status === 401) {
+              setLoading(false);
+              throw new Error("Unauthorized, please login");;
+            }
+            if (res.status === 403) {
+              setLoading(false);
+              throw Error("Forbidden request, please login");
+            }
           }
         } catch (error) {
           console.log(error);
@@ -104,8 +121,16 @@ const BooksContainer = () => {
   
           if (res.ok && res.status !== 204) {
             const data = await res.json();
-            console.log(data);
             fetchPublishersName(data)
+          }
+
+          if (res.status === 401) {
+            setLoading(false);
+            throw new Error("Unauthorized, please login");;
+          }
+          if (res.status === 403) {
+            setLoading(false);
+            throw Error("Forbidden request, please login");
           }
         } catch (error) {
           console.log(error);
@@ -120,10 +145,6 @@ const BooksContainer = () => {
             fetchPublishersNames();
         }
         
-        if(!user) {
-            setError("Please login")
-        }
-        
     }, [user]);
 
 
@@ -131,7 +152,6 @@ const BooksContainer = () => {
     <>
         {isLoading && <h1>Fetching books...</h1>}
         {message && <h1>{`${message}, click on the plus icon below to add one`}</h1>}
-        {error && <h1>{error}</h1>}
 
         <div style={{display: "flex", gap: "50px"}}>
             {books && <span>Books</span>}
@@ -155,6 +175,7 @@ const BooksContainer = () => {
         {currentBooks && <Books books={currentBooks} />}
         {currentBooks.length > 0 && <Pagination totalBook={books} booksPerPage={booksPerPage} paginate={paginate} setCurrentPage={setCurrentPage} currentPage={currentPage}/>}
 
+        {error && <h1>{error}</h1>}
         <Link to="/add-book" className="add">
             <i className="fa-solid fa-plus fa-xm" style={{color: "#ffffff"}}></i>
         </Link>

@@ -75,6 +75,16 @@ const Author = () => {
 
                 navigate("/Authors");
             }
+
+            if (res.status === 401) {
+                setLoading(false);
+                throw new Error("Unauthorized, please login");;
+            }
+            
+            if (res.status === 403) {
+                setLoading(false);
+                throw Error("Forbidden request, please login");
+            }
             
         } catch (err) {
             const error = `${err.name}: ${err.message}`
@@ -87,7 +97,7 @@ const Author = () => {
         {error && <h1>{error}</h1>}
         {message && <h1>{message}</h1>}
 
-        <div>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
             {isLoading ? <h1>Loading...</h1> : <div>{filteredAuthor && <h1>{filteredAuthor[0].name}</h1>}</div>}
             <div>
                     <Link to={`/edit-author/${id}`} onClick={handleAuthorEdit}>

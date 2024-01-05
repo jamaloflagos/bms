@@ -16,7 +16,6 @@ const Books = ({books}) => {
                 <td>Name</td>
                 <td>Author</td>
                 <td>Publisher</td>
-                <td>Category</td>
             </tr>
          </thead>
         <tbody>

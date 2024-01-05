@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 const { User } = require("../models/userModel")
 const verifyJWT = (req, res, next) => {
     const { authorization } = req.headers
@@ -16,19 +16,6 @@ const verifyJWT = (req, res, next) => {
         next()
     })
     
-    // try {
-
-    //     const { _id } = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decode) => {
-    //         if(err) return res.sendStatus(403);
-    //     })
-    //     req.user = await User.findOne({_id}).select("_id");
-    //     console.log("user",req.user);
-    //     next();
-        
-    // } catch (error) {
-    //     console.log(error);
-    //     res.sendStatus(401);
-    // }
 }
 
 module.exports = {

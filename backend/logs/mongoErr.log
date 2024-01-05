@@ -25,3 +25,6 @@
 20231224	08:17:40	8827a48d-588a-4641-b34f-323d61116a24	Error: ECONNREFUSED	querySrv	_mongodb._tcp.mernapp.en03loo.mongodb.net
 20231224	13:38:52	ef31fbb3-4e50-49b3-b384-fb8728bea806	MongooseError: undefined	undefined	undefined
 20231230	22:13:47	c77fb20c-5b02-4feb-b0f3-ca5c6f39eab9	Error: ECONNREFUSED	querySrv	_mongodb._tcp.mernapp.en03loo.mongodb.net
+20240105	06:27:56	dbc86d83-d216-41cc-981b-0b31617d9d2f	Error: ECONNREFUSED	querySrv	_mongodb._tcp.mernapp.en03loo.mongodb.net
+20240105	06:28:08	3bfd2208-ef29-4e68-8de0-d5cecd94ac67	Error: ECONNREFUSED	querySrv	_mongodb._tcp.mernapp.en03loo.mongodb.net
+20240105	06:28:16	f94123b6-ac6e-4f53-a929-266d53bc4e7e	Error: ECONNREFUSED	querySrv	_mongodb._tcp.mernapp.en03loo.mongodb.net

@@ -29,16 +29,32 @@ export const useLogin =  () => {
     }
     
     if(res.ok) {
-        console.log("logins");
         const data = await res.json()
-        localStorage.setItem('user', JSON.stringify(data))
+        localStorage.setItem('user', JSON.stringify(data));
         setIsLoading(false)
-        dispatch({type: "LOGIN", payload: data})
-        console.log(data);
+        dispatch({type: "LOGIN", payload: data});
     }
-
 
    }
 
-   return { error, isLoading, login }
+   const refresh = async () => {
+    try {
+        const res = await fetch("http:localhost:4000/user/refresh");
+
+        if (res.status === 401) {
+            throw Error("Unauthorized");
+        }
+
+        if (res.ok) {
+            const data = await res.json()
+            localStorage.setItem('user', JSON.stringify(data));
+            dispatch({type: "LOGIN", payload: data});
+        }
+        
+    } catch (error) {
+        setError(error);
+    }
+   }
+
+   return { error, isLoading, login, refresh }
  } 

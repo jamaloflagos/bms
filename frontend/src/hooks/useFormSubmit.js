@@ -38,6 +38,16 @@ export const useFormSubmit = (url) => {
                 setLoading(false);
                 navigate(to);
             } 
+
+            if (res.status === 401) {
+                setLoading(false);
+                throw new Error("Unauthorized, please login");;
+            }
+            
+            if (res.status === 403) {
+                setLoading(false);
+                throw Error("Forbidden request, please login");
+            }
             
         } catch (err) {
             const error = `${err.name}: ${err.message}`

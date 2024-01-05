@@ -68,6 +68,16 @@ const Publisher = () => {
 
                 navigate("/publishers");
             }
+
+            if (res.status === 401) {
+                setLoading(false);
+                throw new Error("Unauthorized, please login");;
+            }
+            
+            if (res.status === 403) {
+                setLoading(false);
+                throw Error("Forbidden request, please login");
+            }
             
         } catch (err) {
             const error = `${err.name}: ${err.message}`
@@ -80,7 +90,7 @@ const Publisher = () => {
         {error && <h1>{error}</h1>}
         {message && <h1>{message}</h1>}
 
-        <div>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
             {isLoading ? <h1>Loading...</h1> : <div>{filteredPublisher && <h1>{filteredPublisher[0].name}</h1>}</div>}
             <div>
                     <Link to={`/edit-publisher/${id}`} onClick={handlePublisherEdit}>

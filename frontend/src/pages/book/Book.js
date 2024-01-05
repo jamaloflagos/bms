@@ -39,6 +39,16 @@ const Book = () => {
                     const error = await res.json();
                     setError(error.message);    
                 }
+
+                if (res.status === 401) {
+                    setLoading(false);
+                    throw new Error("Unauthorized, please login");;
+                }
+                
+                if (res.status === 403) {
+                    setLoading(false);
+                    throw Error("Forbidden request, please login");
+                }
                 
             } catch (error) {
                 console.log(error);
@@ -82,6 +92,16 @@ const Book = () => {
 
                 navigate("/");
             }
+
+            if (res.status === 401) {
+                setLoading(false);
+                throw new Error("Unauthorized, please login");;
+            }
+            
+            if (res.status === 403) {
+                setLoading(false);
+                throw Error("Forbidden request, please login");
+            }
             
         } catch (err) {
             const error = `${err.name}: ${err.message}`
@@ -90,17 +110,17 @@ const Book = () => {
     }
   return (
     <div>
-        <div>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
             <div>
                 {filteredBook && <h1>{filteredBook[0].name}</h1>}
             </div>
             
             <div>
                     <Link to={`/edit-book/${id}`} onClick={handleBookEdit}>
-                        <i className="fa-regular fa-pen-to-square"></i>
+                        <i className="fa-regular fa-pen-to-square fa-xm"></i>
                     </Link>
                     <button onClick={deleteBook}>
-                        <i className="fa-solid fa-trash"></i>
+                        <i className="fa-solid fa-trash fa-xm"></i>
                     </button>
             </div>
             </div>
