@@ -8,7 +8,7 @@ const EditBook = () => {
     const publishersName = JSON.parse(localStorage.getItem("publishersName"));
 
     const { id } = useParams();
-    const url = `http://localhost:4000/book/${id}`
+    const url = `https://bms-server-ashy.vercel.app/book/${id}`
     const [ error, handleSubmit, isLoading ] = useFormSubmit(url);
     
     

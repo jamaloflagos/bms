@@ -13,7 +13,7 @@ const PublishersContainer = () => {
 
     const fetchPublisher = async () => {
         try {
-            const res = await fetch("http://localhost:4000/publisher",  {
+            const res = await fetch("https://bms-server-ashy.vercel.app/publisher",  {
                 headers: {
                    "Authorization": `Bearer ${user.accessToken}`
                 }

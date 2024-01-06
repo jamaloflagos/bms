@@ -14,7 +14,7 @@ const Publisher = () => {
     const { publishers, deletePublisher} = usePublisher();
     const fetchPublisher = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/publisher/${id}`, {
+            const res = await fetch(`https://bms-server-ashy.vercel.app/publisher/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${user.accessToken}`
                 }
@@ -50,7 +50,7 @@ const Publisher = () => {
 
     const handleDeletePublisher = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/publisher/${id}`, {
+            const res = await fetch(`https://bms-server-ashy.vercel.app/publisher/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Beare ${user.accesToken}`

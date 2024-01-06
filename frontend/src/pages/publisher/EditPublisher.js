@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const EditPublisher = () => {
     const {name, address, email, country, phone} = JSON.parse(localStorage.getItem("singlePublisher"))
     const { id } = useParams();
-    const url = `http:localhost:4000/author/${id}`
+    const url = `https://bms-server-ashy.vercel.app/author/${id}`
     const [ handleSubmit, error, isLoading ] = useFormSubmit(url);
 
     const [newName, setNewName] = useState("");

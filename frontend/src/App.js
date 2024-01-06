@@ -18,68 +18,16 @@ import EditAuthor from "./pages/author/EditAuthor";
 
 function App() {
   const { user, dispatch } = useUser();
-  console.log(user);
-  
-  // useEffect(() => {
-  //   const fetchAuthorsName = async () => {
-  //     try {
-  //       const res = await fetch("http://localhost:4000/author/names", {
-  //         headers: {
-  //            "Authorization": `Bearer ${user.accessToken}`
-  //         }
-  //     });
-        
-  //       if (res.status === 204) throw Error("No Author");
-
-  //       if (res.ok && res.status !== 204) {
-  //         const data = await res.json();
-  //         console.log(data);
-          
-  //         localStorage.setItem("authorsName", JSON.stringify(data));
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   if (user) {
-  //     fetchAuthorsName();
-  //   }
-  // }, [])
-
-  // useEffect(() => {
-  //   const fetchPublishersName = async () => {
-  //     try {
-  //       const res = await fetch("http://localhost:4000/publisher/names", {
-  //         headers: {
-  //            "Authorization": `Bearer ${user.accessToken}`
-  //         }
-  //     });
-        
-  //       if (res.status === 204) throw Error("No Publisher");
-
-  //       if (res.ok && res.status !== 204) {
-  //         const data = await res.json();
-  //         console.log(data);
-  //         localStorage.setItem("publishersName", JSON.stringify(data));
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-
-  //   if (user) {
-  //     fetchPublishersName();
-  //   }
-
-  // }, [])
 
   useEffect(() => {
-    const logout = setTimeout(() => {
+    console.log("effect in App ran")
+    const logout = setInterval(() => {
+      console.log("Interval ran");
       localStorage.removeItem("user")
       dispatch({type: "LOGOUT"})
   }, 1000 * 60 * 60);
 
-  return () => clearTimeout(logout);
+  return () => clearInterval(logout);
   }, [])
 
   return (

@@ -17,7 +17,7 @@ const Author = () => {
     
     const fetchAuthor = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/author/${id}`, {
+            const res = await fetch(`https://bms-server-ashy.vercel.app/author/${id}`, {
                 headers: {
                     "Authorization": `Bearer ${user.accessToken}`
                 }
@@ -57,7 +57,7 @@ const Author = () => {
 
     const handleDeleteAuthor = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/author/${id}`, {
+            const res = await fetch(`https://bms-server-ashy.vercel.app/author/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Beare ${user.accesToken}`

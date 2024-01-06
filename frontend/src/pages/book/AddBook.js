@@ -9,7 +9,7 @@ const AddBook = () => {
     console.log(authorsName, publishersName);
     
 
-    const url = 'http://localhost:4000/book'
+    const url = 'https://bms-server-ashy.vercel.app/book'
     const to = "/"
     const dispatchType = "ADD_BOOK"
     const data = {

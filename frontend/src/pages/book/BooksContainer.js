@@ -45,7 +45,7 @@ const BooksContainer = () => {
 
     const fetchBook = async() => {
         try {
-            const res = await fetch('http://localhost:4000/book', {
+            const res = await fetch('https://bms-server-ashy.vercel.app/book', {
                 headers: {
                    "Authorization": `Bearer ${user.accessToken}`
                 }
@@ -83,7 +83,7 @@ const BooksContainer = () => {
        
        const fetchAuthorsNames = async () => {
         try {
-          const res = await fetch("http://localhost:4000/author/names", {
+          const res = await fetch("https://bms-server-ashy.vercel.app/author/names", {
             headers: {
                "Authorization": `Bearer ${user.accessToken}`
             }
@@ -111,7 +111,7 @@ const BooksContainer = () => {
 
       const fetchPublishersNames = async () => {
         try {
-          const res = await fetch("http://localhost:4000/publisher/names", {
+          const res = await fetch("https://bms-server-ashy.vercel.app/publisher/names", {
             headers: {
                "Authorization": `Bearer ${user.accessToken}`
             }
@@ -128,6 +128,7 @@ const BooksContainer = () => {
             setLoading(false);
             throw new Error("Unauthorized, please login");;
           }
+          
           if (res.status === 403) {
             setLoading(false);
             throw Error("Forbidden request, please login");

@@ -2,7 +2,7 @@ import { useForm } from "../../hooks/useForm"
 import { useFormSubmit } from "../../hooks/useFormSubmit";
 
 const AddPublisher = () => {
-    const url = "http://localhost:4000/publisher"
+    const url = "https://bms-server-ashy.vercel.app/publisher"
     const to = "/publishers"
     const dispatchType = "ADD_PUBLISHER"
     const data = {

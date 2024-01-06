@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const EditAuthor = () => {
     const { id } = useParams();
     const { name, description, position, gender, yod, dob} = JSON.parse(localStorage.getItem("singleAuthor"));
-    const url = `http:localhost:4000/author/${id}`
+    const url = `https://bms-server-ashy.vercel.app/author/${id}`
     const [error, isLoading, handleSubmit] = useFormSubmit(url);
 
     const [newName, setNewName] = useState("");
